@@ -2,6 +2,7 @@ import type { Actions, PageServerLoad } from "./$types"
 import { prisma } from "$lib/server/prisma"
 import { fail } from "@sveltejs/kit"
 export const load: PageServerLoad = async () => {
+  console.log(prisma.article.findMany())
   return {
     articles: await prisma.article.findMany()
   }
